@@ -1,0 +1,93 @@
+show dbs;
+
+use('TopLeagues');
+db.createCollection('SerieA')
+
+use('TopLeagues');
+db.createCollection('PL')
+db.createCollection('Ligue1')
+
+use('TopLeagues');
+db.SerieA.insertMany([
+    {team: 'AC Milan'},
+    {team: 'Inter'},
+    {team: 'Genoa'},
+    {team: 'Bologna'},
+    {team: 'Juventus'},
+    {team: 'Roma'},
+    {team: 'Torino'},
+    {team: 'Palermo'},
+    {team: 'Brescia'},
+    {team: 'Napoli'}])
+
+use('TopLeagues');
+db.PL.insertMany([
+    {team: 'Man City'},
+    {team: 'Chelsea'},
+    {team: 'Liverpool'},
+    {team: 'Man United'},
+    {team: 'Spurs'},
+    {team: 'Arsenal'},
+    {team: 'Leicester'},
+    {team: 'Notts Forest'},
+    {team: 'Newcastle'},
+    {team: 'Bournemouth'}])
+
+use('TopLeagues');
+db.Ligue1.insertMany([
+    {team: 'PSG'},
+    {team: 'Lyon'},
+    {team: 'Monaco'},
+    {team: 'Lyon'},
+    {team: 'Marseille'},
+    {team: 'Nantes'},
+    {team: 'Nice'},
+    {team: 'Montpellier'},
+    {team: 'Strasbourg'},
+    {team: 'Clermont'}])
+
+// Adding documents to each collection
+
+use('TopLeagues');
+
+db.PL.find({team: 'Liverpool'})
+
+// Finding a document
+
+
+use("TopLeagues");
+db.PL.updateOne({ team: 'Bolton Wanderers' },
+{
+  $set: {
+    manager: 'Sam Allardyce',
+    bestplayer: 'Jay Jay Okocha',
+    goals: 18,
+    rating: 8.1,
+    tags: ['Nigeria', 'Skills', 'Oga']
+  }
+},
+{
+  upsert: true
+})
+
+//Adding a document to the collection PL
+
+use("TopLeagues");
+db.PL.find()
+
+//Checking my database has updated
+use("TopLeagues");
+
+db.PL.deleteOne({team: 'Man City'})
+
+// deleting a document
+
+use("TopLeagues");
+db.PL.find()
+
+//Checking my database has deleted
+
+
+
+
+

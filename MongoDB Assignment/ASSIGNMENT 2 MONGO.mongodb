@@ -1,0 +1,20 @@
+use('uni');
+db.student.find({CourseID: 4})
+// Find all the documents from the student collection which CourseID 4#
+
+use('uni');
+db.student.find({CourseID: 5, Forenames: 'Joe'})
+//Find all the documents from the student collection which CourseID 5 and forename is Joe
+
+use('uni');
+db.student.find({$or:[{CourseID: 5}, {Forenames: 'Joe'}]})
+// Find all the documents from the student collection which CourseID 5 or Firstname is Joe
+
+use('uni');
+db.application.find().sort({StudentID:1})
+//Find all documents from the application collection and sort by studentID.
+
+
+use('uni');
+db.class.find({LecturerID:11}).count()
+//In the class collection, count the number of LecturerID which is equal to 11.
